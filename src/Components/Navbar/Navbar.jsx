@@ -11,7 +11,7 @@ const Navbar = () => {
       <NavLink to="/all-scholarship">All Scholarship</NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+      <NavLink to="/login">Login</NavLink>
       </li>
     </>
   );
@@ -42,11 +42,14 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
+      
+        <Link to="/" className="">
         <img
-          className="w-14"
+          className="w-14 rounded-full"
           src="https://i.ibb.co/c6vDhfL/e48c686c-18d6-49be-b72c-6eb91813ab49.jpg"
           alt=""
         />
+        </Link>
         <Link to="/" className="btn btn-ghost text-xl">
           Grant Genius
         </Link>
