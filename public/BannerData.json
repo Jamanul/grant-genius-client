@@ -1,0 +1,40 @@
+[
+    {
+      "id": 1,
+      "title": "Apply for 2024 Scholarships Now!",
+      "description": "Don't miss out on available scholarships for the upcoming academic year. Apply today!",
+      "imageUrl": "https://i.ibb.co/30V4XXh/vadim-sherbakov-d6eb-Y-fa-OO0-unsplash.jpg",
+      "link": "https://example.com/apply"
+    },
+    {
+      "id": 3,
+      "title": "Merit-Based Scholarships Available",
+      "description": "Check out the latest merit-based scholarships for top-performing students.",
+      "imageUrl": "https://i.ibb.co/VBz5mDf/felicia-buitenwerf-Qs-Zkak27-Jk-unsplash.jpg",
+      "link": "https://example.com/merit-scholarships"
+    },
+    {
+      "id": 4,
+      "title": "Financial Aid for International Students",
+      "description": "International students can apply for financial aid and scholarships to study abroad.",
+      "imageUrl": "https://i.ibb.co/L6XvtLd/dom-fou-YRMWVcdyhm-I-unsplash.jpg",
+      "link": "https://example.com/international-aid"
+    },
+    {
+      "id": 5,
+      "title": "Scholarships for Underrepresented Groups",
+      "description": "Find scholarships aimed at supporting underrepresented groups in higher education.",
+      "imageUrl": "https://i.ibb.co/3C6RWHM/brooke-cagle-g1-Kr4-Ozfoac-unsplash.jpg",
+      "link": "https://example.com/underrepresented-scholarships"
+    },
+    {
+      "id": 6,
+      "title": "Graduate Scholarships Open for Applications",
+      "description": "Graduate students can now apply for various scholarships to support their advanced studies.",
+      "imageUrl": "https://i.ibb.co/TTPqFR9/brett-jordan-ku-EMUo-DZep-Y-unsplash.jpg",
+      "link": "https://example.com/graduate-scholarships"
+    }
+  ]
+
+
+
