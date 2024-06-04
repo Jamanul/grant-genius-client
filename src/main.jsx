@@ -4,9 +4,6 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
@@ -18,6 +15,7 @@ import AuthProvider from "./firebaseAuth/AuthProvider.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import Registration from "./Pages/Registration/Registration.jsx";
 import ScholarshipDetails from "./Pages/ScholarshipDetails/ScholarshipDetails.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'scholarship/:id',
-        element:<ScholarshipDetails></ScholarshipDetails>
+        element:<PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>
       }
     ],
   },

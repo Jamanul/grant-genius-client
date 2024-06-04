@@ -9,7 +9,7 @@ const TopScholarship = () => {
     return (
         <div>
             <h2 className="mb-2 text-5xl text-center">Top Scholarship</h2>
-            <h2 className="mb-6">Discover amazing opportunities to take your life to another level</h2>
+            <h2 className="mb-6 text-center">Discover amazing opportunities to take your life to another level</h2>
             <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {
                     scholarshipData?.slice(6).map(singleScholarship=><div key={singleScholarship._id} className="card w-96 bg-base-100 shadow-xl">
@@ -17,7 +17,7 @@ const TopScholarship = () => {
                     <p className="bg-[#0AB99D] absolute top-10 left-12 text-white px-4 py-2 rounded-md">{singleScholarship.scholarshipCategory}</p>
                     <div className="space-y-2">
                         <h2>rating</h2>
-                      <h2 className="card-title text-left">{singleScholarship.universityName}</h2>
+                      <h2 className="card-title">{singleScholarship.universityName}</h2>
                       <h2 className="text-left"><span className="text-[16px] font-bold">Subject : </span>{singleScholarship.subjectName}</h2>
                       <p className="flex"><FaLocationDot className="text-2xl mr-1 text-[#0AB99D]"/>{singleScholarship.universityLocation.city},{singleScholarship.universityLocation.country}</p>
                       <div className="text-left gap-6">

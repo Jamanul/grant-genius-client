@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Banner from '../../Components/Banner/Banner';
 import TopScholarship from '../../Components/TopScholarship/TopScholarship';
 

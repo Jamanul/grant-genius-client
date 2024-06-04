@@ -1,9 +1,12 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogin from '../../Components/GoogleLogin/GoogleLogin';
 import useAuth from '../../Hooks/useAuth';
+import { toast } from 'react-toastify';
 const Login = () => {
     const {loginUser}=useAuth()
+    const navigate =useNavigate()
+    const location =useLocation()
     const {
         register,
         handleSubmit,
@@ -13,6 +16,11 @@ const Login = () => {
         loginUser(data.email,data.password)
         .then(result=>{
             //console.log(result.user)
+            toast.success('logged in successfully')
+            navigate(location?.state || '/')
+        })
+        .catch(()=>{
+          toast.error('Use Right credentials')
         })
       };
     return (

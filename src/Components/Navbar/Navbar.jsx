@@ -1,7 +1,8 @@
-import React from "react";
+
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
+import { FaUser } from "react-icons/fa6";
 
 const Navbar = () => {
   const {user,logoutUser}=useAuth()
@@ -74,10 +75,10 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
+              {user? <img
                 alt="Tailwind CSS Navbar component"
                 src={user?.photoURL}
-              />
+              />: <FaUser className="text-4xl rounded-none text-[#0AB99D]"></FaUser>}
             </div>
           </div>
           <ul
