@@ -1,13 +1,41 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import GoogleLogin from "../../Components/GoogleLogin/GoogleLogin";
 const Registration = () => {
+    const {registerUser,updateUser,setUser,user} =useAuth()
+    const axiosPublic =useAxiosPublic()
+    const navigate =useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    registerUser(data.email,data.password)
+    .then(result=>{
+        //console.log(result.user)
+        updateUser(data.name,data.photoUrl)
+        setUser({...user,displayName:data.name,photoURL:data.photoUrl})
+        const userInfo={
+            name: data.name,
+            email: data.email,
+            role: 'user'
+        }
+        axiosPublic.post('/user',userInfo)
+        .then((result)=>{
+            console.log()
+            if(result.data.acknowledged){
+                toast.success('Created an account!!!')
+                navigate('/')
+            }
+            else{
+                toast.error('Something went wrong.')
+            }
+        })
+    })
   };
   return (
     <div className="hero min-h-screen">
@@ -93,6 +121,7 @@ const Registration = () => {
               <button className="btn bg-[#0AB99D] text-white">Register</button>
             </div>
           </form>
+          <GoogleLogin></GoogleLogin>
           <p>Already have an account? <Link className='font-bold' to='/login'>  Login here!!!</Link></p>
         </div>
       </div>

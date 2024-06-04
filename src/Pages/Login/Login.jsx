@@ -1,13 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import GoogleLogin from '../../Components/GoogleLogin/GoogleLogin';
+import useAuth from '../../Hooks/useAuth';
 const Login = () => {
+    const {loginUser}=useAuth()
     const {
         register,
         handleSubmit,
         formState: { errors },
       } = useForm();
       const onSubmit = (data) => {
-        console.log(data);
+        loginUser(data.email,data.password)
+        .then(result=>{
+            //console.log(result.user)
+        })
       };
     return (
         <div className="hero min-h-screen">
@@ -52,7 +58,8 @@ const Login = () => {
                 <button className="btn  bg-[#0AB99D] text-white">Log In</button>
               </div>
             </form>
-            <p>Don't have an account? <Link className='font-bold' to='/registration'>  Register here!!!</Link></p>
+            <GoogleLogin></GoogleLogin>
+            <p className='mt-2'>Don't have an account? <Link className='font-bold' to='/registration'>  Register here!!!</Link></p>
           </div>
         </div>
       </div>

@@ -1,7 +1,16 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const {user,logoutUser}=useAuth()
+  const handleLogout =()=>{
+    logoutUser()
+    .then(()=>{
+      toast.success('Logged out successfully')
+    })
+  }
   const links = (
     <>
       <li>
@@ -67,7 +76,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src={user?.photoURL}
               />
             </div>
           </div>
@@ -77,11 +86,13 @@ const Navbar = () => {
           >
             <li>
               <a className="justify-between">
-                Profile
+                {user ? user?.displayName : 'Your name'}
               </a>
             </li>
             <li>
-              <a>Logout</a>
+              {
+                user ? <a onClick={handleLogout}>Logout</a> : <Link to='/login'>Login</Link>
+              }
             </li>
           </ul>
         </div>

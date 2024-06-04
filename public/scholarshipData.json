@@ -1,0 +1,206 @@
+[
+    {
+      "scholarshipId": 1,
+      "universityName": "Harvard University",
+      "universityLogo": "https://i.ibb.co/HqG9CCZ/photo-1622397333309-3056849bc70b.jpg",
+      "scholarshipCategory": "Merit-based",
+      "universityLocation": {
+        "country": "USA",
+        "city": "Cambridge"
+      },
+      "applicationDeadline": "2024-07-01",
+      "subjectName": "Computer Science",
+      "scholarshipDescription": "Scholarship for outstanding students in Computer Science.",
+      "stipend": 5000,
+      "postDate": "2024-01-01",
+      "serviceCharge": 50,
+      "applicationFees": 100
+    },
+    {
+      "scholarshipId": 2,
+      "universityName": "University of Oxford",
+      "universityLogo": "https://i.ibb.co/9tnt9bB/photo-1617297296495-4af2290c2b84.jpg",
+      "scholarshipCategory": "Need-based",
+      "universityLocation": {
+        "country": "UK",
+        "city": "Oxford"
+      },
+      "applicationDeadline": "2024-08-15",
+      "subjectName": "Law",
+      "scholarshipDescription": "Financial assistance for law students with demonstrated need.",
+      "stipend": 7000,
+      "postDate": "2024-02-10",
+      "serviceCharge": 60,
+      "applicationFees": 120
+    },
+    {
+      "scholarshipId": 3,
+      "universityName": "Stanford University",
+      "universityLogo": "https://i.ibb.co/cwD1THs/photo-1508302882073-8af6be4c6688.jpg",
+      "scholarshipCategory": "Research",
+      "universityLocation": {
+        "country": "USA",
+        "city": "Stanford"
+      },
+      "applicationDeadline": "2024-06-30",
+      "subjectName": "Biomedical Engineering",
+      "scholarshipDescription": "Scholarship for students pursuing research in Biomedical Engineering.",
+      "stipend": 6000,
+      "postDate": "2024-03-15",
+      "serviceCharge": 55,
+      "applicationFees": 110
+    },
+    {
+      "scholarshipId": 4,
+      "universityName": "University of Tokyo",
+      "universityLogo": "https://i.ibb.co/Tvt8CGv/photo-1700989101224-c4d286d8279a.jpg",
+      "scholarshipCategory": "International",
+      "universityLocation": {
+        "country": "Japan",
+        "city": "Tokyo"
+      },
+      "applicationDeadline": "2024-09-01",
+      "subjectName": "Economics",
+      "scholarshipDescription": "Scholarship for international students in the field of Economics.",
+      "stipend": 4000,
+      "postDate": "2024-04-20",
+      "serviceCharge": 60,
+      "applicationFees": 120
+    },
+    {
+      "scholarshipId": 5,
+      "universityName": "University of Melbourne",
+      "universityLogo": "https://i.ibb.co/m6z4Y9F/photo-1470378639897-89788e74b7bf.jpg",
+      "scholarshipCategory": "Athletic",
+      "universityLocation": {
+        "country": "Australia",
+        "city": "Melbourne"
+      },
+      "applicationDeadline": "2024-10-01",
+      "subjectName": "Sports Science",
+      "scholarshipDescription": "Scholarship for athletes pursuing a degree in Sports Science.",
+      "stipend": 8000,
+      "postDate": "2024-05-10",
+      "serviceCharge": 70,
+      "applicationFees": 150
+    },
+    {
+      "scholarshipId": 6,
+      "universityName": "McGill University",
+      "universityLogo": "https://i.ibb.co/frKnC9f/photo-1510213491398-061d85984dfd.jpg",
+      "scholarshipCategory": "Diversity",
+      "universityLocation": {
+        "country": "Canada",
+        "city": "Montreal"
+      },
+      "applicationDeadline": "2024-11-15",
+      "subjectName": "Environmental Science",
+      "scholarshipDescription": "Scholarship for students from underrepresented backgrounds in Environmental Science.",
+      "stipend": 10000,
+      "postDate": "2024-06-05",
+      "serviceCharge": 80,
+      "applicationFees": 160
+    },
+    {
+      "scholarshipId": 7,
+      "universityName": "Heidelberg University",
+      "universityLogo": "https://i.ibb.co/P6xbNhP/photo-1692817719793-69ef529e432c.jpg",
+      "scholarshipCategory": "Academic Excellence",
+      "universityLocation": {
+        "country": "Germany",
+        "city": "Heidelberg"
+      },
+      "applicationDeadline": "2024-12-01",
+      "subjectName": "Philosophy",
+      "scholarshipDescription": "Scholarship for students demonstrating academic excellence in Philosophy.",
+      "stipend": 4500,
+      "postDate": "2024-07-10",
+      "serviceCharge": 50,
+      "applicationFees": 100
+    },
+    {
+      "scholarshipId": 8,
+      "universityName": "National University of Singapore",
+      "universityLogo": "https://i.ibb.co/fxwHP5W/premium-photo-1681338224373-9669c2497c05.jpg",
+      "scholarshipCategory": "Leadership",
+      "universityLocation": {
+        "country": "Singapore",
+        "city": "Singapore"
+      },
+      "applicationDeadline": "2024-07-31",
+      "subjectName": "Business Administration",
+      "scholarshipDescription": "Scholarship for students with demonstrated leadership potential in Business Administration.",
+      "stipend": 6000,
+      "postDate": "2024-08-01",
+      "serviceCharge": 70,
+      "applicationFees": 140
+    },
+    {
+      "scholarshipId": 9,
+      "universityName": "ETH Zurich",
+      "universityLogo": "https://i.ibb.co/wSRCLTg/photo-1570371804372-112303e64157.jpg",
+      "scholarshipCategory": "Science and Technology",
+      "universityLocation": {
+        "country": "Switzerland",
+        "city": "Zurich"
+      },
+      "applicationDeadline": "2024-06-15",
+      "subjectName": "Physics",
+      "scholarshipDescription": "Scholarship for students excelling in the field of Physics.",
+      "stipend": 5000,
+      "postDate": "2024-03-25",
+      "serviceCharge": 65,
+      "applicationFees": 130
+    },
+    {
+      "scholarshipId": 10,
+      "universityName": "University of Cape Town",
+      "universityLogo": "https://i.ibb.co/FsS7wbk/premium-photo-1697729748864-4e2d548a48e1.jpg",
+      "scholarshipCategory": "Community Service",
+      "universityLocation": {
+        "country": "South Africa",
+        "city": "Cape Town"
+      },
+      "applicationDeadline": "2024-08-30",
+      "subjectName": "Public Health",
+      "scholarshipDescription": "Scholarship for students who have shown commitment to community service in Public Health.",
+      "stipend": 9000,
+      "postDate": "2024-04-15",
+      "serviceCharge": 50,
+      "applicationFees": 100
+    },
+    {
+      "scholarshipId": 11,
+      "universityName": "Indian Institute of Technology Bombay",
+      "universityLogo": "https://i.ibb.co/ScDmfnY/premium-photo-1697729447666-c39f50d595ea.jpg",
+      "scholarshipCategory": "Engineering",
+      "universityLocation": {
+        "country": "India",
+        "city": "Mumbai"
+      },
+      "applicationDeadline": "2024-09-20",
+      "subjectName": "Electrical Engineering",
+      "scholarshipDescription": "Scholarship for top engineering students in Electrical Engineering.",
+      "stipend": 2000,
+      "postDate": "2024-05-25",
+      "serviceCharge": 40,
+      "applicationFees": 80
+    },
+    {
+      "scholarshipId": 12,
+      "universityName": "Peking University",
+      "universityLogo": "https://i.ibb.co/vwL4m08/photo-1598058921517-81a452bc7cce.jpg",
+      "scholarshipCategory": "Cultural Exchange",
+      "universityLocation": {
+        "country": "China",
+        "city": "Beijing"
+      },
+      "applicationDeadline": "2024-10-10",
+      "subjectName": "International Relations",
+      "scholarshipDescription": "Scholarship for students engaging in cultural exchange and International Relations.",
+      "stipend": 3000,
+      "postDate": "2024-06-15",
+      "serviceCharge": 20,
+      "applicationFees": 40
+    }
+  ]

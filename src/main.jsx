@@ -17,6 +17,7 @@ import AllScholarship from "./Pages/AllScholarship/AllScholarship.jsx";
 import AuthProvider from "./firebaseAuth/AuthProvider.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import Registration from "./Pages/Registration/Registration.jsx";
+import ScholarshipDetails from "./Pages/ScholarshipDetails/ScholarshipDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'registration',
         element:<Registration></Registration>
+      },
+      {
+        path: 'scholarship/:id',
+        element:<ScholarshipDetails></ScholarshipDetails>
       }
     ],
   },
