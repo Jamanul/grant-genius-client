@@ -16,6 +16,7 @@ import Login from "./Pages/Login/Login.jsx";
 import Registration from "./Pages/Registration/Registration.jsx";
 import ScholarshipDetails from "./Pages/ScholarshipDetails/ScholarshipDetails.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
+import Payment from "./Pages/Payment/Payment.jsx";
 
 const router = createBrowserRouter([
   {

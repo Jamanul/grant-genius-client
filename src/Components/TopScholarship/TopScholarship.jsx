@@ -19,7 +19,7 @@ const TopScholarship = () => {
                         <h2>rating</h2>
                       <h2 className="card-title">{singleScholarship.universityName}</h2>
                       <h2 className="text-left"><span className="text-[16px] font-bold">Subject : </span>{singleScholarship.subjectName}</h2>
-                      <p className="flex"><FaLocationDot className="text-2xl mr-1 text-[#0AB99D]"/>{singleScholarship.universityLocation.city},{singleScholarship.universityLocation.country}</p>
+                      <p className="flex items-center"><FaLocationDot className="text-2xl mr-1 text-[#0AB99D]"/>{singleScholarship.universityLocation.city},{singleScholarship.universityLocation.country}</p>
                       <div className="text-left gap-6">
                         <p><span className="font-bold">Application fees:</span> {singleScholarship.applicationFees} $</p>
                         <p><span className="font-bold">Application Deadline: </span>{singleScholarship.applicationDeadline}</p>
