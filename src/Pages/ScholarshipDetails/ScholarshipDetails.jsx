@@ -1,21 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { Link, useParams } from "react-router-dom";
+
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 
 
+
 const ScholarshipDetails = () => {
-    const axiosSecure =useAxiosSecure()
-    const {id} =useParams()
-    const {data:singleScholarshipData}=useQuery({
-        queryKey:['singleScholarshipData'],
-        queryFn: async()=>{
-            const res = await axiosSecure.get(`/scholarship/${id}`)
-            return res.data
-        }
-    })
-    console.log(id,singleScholarshipData)
-    const {
+    const newScholarshipData = useLoaderData()
+    //console.log(newScholarshipData)
+    const { _id,
         universityName,
         universityLogo,
         scholarshipCategory,
@@ -26,7 +18,7 @@ const ScholarshipDetails = () => {
         stipend,
         postDate,
         serviceCharge,
-        applicationFees}=singleScholarshipData
+        applicationFees}=newScholarshipData
     return (
         <div>
             <div className="flex flex-col md:flex-row gap-6">
@@ -42,7 +34,7 @@ const ScholarshipDetails = () => {
                     <h2 className="text-xl"><span className="font-bold text-2xl">Stipend : </span>{stipend} $</h2>
                     <h2 className="text-xl"><span className="font-bold text-2xl">Service Charge : </span>{serviceCharge} $</h2>
                     <h2 className="text-xl"><span className="font-bold text-2xl">Application Fees: </span>{applicationFees} $ per year</h2>
-                    <Link to='/payment'><button className="btn bg-[#0AB99D] text-white">Apply Scholarship</button></Link>
+                    <Link to={`/payment/${_id}`}><button className="btn bg-[#0AB99D] text-white">Apply Scholarship</button></Link>
                 </div>
             </div>
         </div>

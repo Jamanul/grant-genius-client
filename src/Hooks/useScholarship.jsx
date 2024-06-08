@@ -8,7 +8,7 @@ const useScholarship = () => {
         queryKey: ['scholarshipData'],
         queryFn: async ()=>{
             const res = await axiosPublic.get('/all-scholarship')
-            //console.log(res.data)
+            console.log(res.data)
             return res.data
         }
     })

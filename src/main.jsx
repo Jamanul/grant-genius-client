@@ -40,8 +40,14 @@ const router = createBrowserRouter([
         element:<Registration></Registration>
       },
       {
-        path: 'scholarship/:id',
-        element:<PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>
+        path: '/scholarship/:id',
+        element:<PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:5000/all-scholarship/${params.id}`)
+      },
+      {
+        path: 'payment/:id',
+        element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:5000/all-scholarship/${params.id}`)
       }
     ],
   },

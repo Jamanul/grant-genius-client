@@ -39,11 +39,13 @@ const AuthProvider = ({children}) => {
                 const userInfo = {email: currentUser?.email}
                 axiosPublic.post('/jwt',userInfo)
                 .then(result=>{
-                    if(result.data){
-                        localStorage.setItem('access-token',result.data.token)
+                    if(result.data.token){
+                        localStorage.setItem('token-org',result.data.token)
+                        
                     }
                     else{
-                        localStorage.removeItem('access-token')
+                        localStorage.removeItem('token-org')
+                        
                     }
                 })
                 
