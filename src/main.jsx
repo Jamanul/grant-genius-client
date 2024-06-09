@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider,useQuery,
+  useMutation,
+  useQueryClient, } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 import Root from "./Layout/Root.jsx";
 import Home from "./Pages/Home/Home.jsx";
@@ -17,6 +16,10 @@ import Registration from "./Pages/Registration/Registration.jsx";
 import ScholarshipDetails from "./Pages/ScholarshipDetails/ScholarshipDetails.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import Payment from "./Pages/Payment/Payment.jsx";
+import Dashboard from "./Layout/Dashboard.jsx";
+import UserHome from "./Pages/Dashboard/UserHome/UserHome.jsx";
+import UserApplication from "./Pages/Dashboard/UserApplication/UserApplication.jsx";
+import App from "./App.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,33 +35,61 @@ const router = createBrowserRouter([
         element: <AllScholarship></AllScholarship>,
       },
       {
-        path:'login',
-        element:<Login></Login>
+        path: "login",
+        element: <Login></Login>,
       },
       {
-        path: 'registration',
-        element:<Registration></Registration>
+        path: "registration",
+        element: <Registration></Registration>,
       },
       {
-        path: '/scholarship/:id',
-        element:<PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/all-scholarship/${params.id}`)
+        path: "scholarship/:id",
+        element: (
+          <PrivateRoute>
+            <ScholarshipDetails></ScholarshipDetails>
+          </PrivateRoute>
+        ),
+    
       },
       {
-        path: 'payment/:id',
-        element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/all-scholarship/${params.id}`)
-      }
+        path: "payment/:id",
+        element: (
+          <PrivateRoute>
+            <Payment></Payment>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/all-scholarship/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "user-dashboard",
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: "my-application",
+        element: <UserApplication></UserApplication>,
+       
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
-      </AuthProvider>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

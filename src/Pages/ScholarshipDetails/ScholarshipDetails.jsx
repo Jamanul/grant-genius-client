@@ -1,11 +1,24 @@
 
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 
 const ScholarshipDetails = () => {
-    const newScholarshipData = useLoaderData()
+    const axiosPublic =useAxiosPublic()
+    const [newScholarshipData,setNewScholarshipData]=useState([])
+    const {id}=useParams()
+    //console.log(id)
+    useEffect(()=>{
+        axiosPublic.get(`http://localhost:5000/all-scholarship/${id}`)
+        .then(res=>{
+            //console.log(res.data)
+            setNewScholarshipData(res.data)
+        })
+    },[axiosPublic,id])
+    //const newScholarshipData = useLoaderData()
     //console.log(newScholarshipData)
     const { _id,
         universityName,
@@ -25,7 +38,7 @@ const ScholarshipDetails = () => {
                 <img className="rounded-3xl border border-[#0AB99D] p-4" src={universityLogo} alt="" />
                 <div className="border space-y-2 flex-1 text-left border-[#0AB99D] p-4 rounded-3xl">
                     <h2 className="text-xl"><span className="font-bold text-2xl">Name : </span>{universityName}</h2>
-                    <p className="flex items-center"><FaLocationDot className="text-2xl mr-1 text-[#0AB99D]"/>{universityLocation.city},{universityLocation.country}</p>
+                    <p className="flex items-center"><FaLocationDot className="text-2xl mr-1 text-[#0AB99D]"/>{universityLocation?.city},{universityLocation?.country}</p>
                     <h2 className="text-xl"><span className="font-bold text-2xl">Scholarship category : </span>{scholarshipCategory}</h2>
                     <h2 className="text-xl"><span className="font-bold text-2xl">Subject : </span>{subjectName}</h2>
                     <h2 className="text-xl"><span className="font-bold text-2xl">About : </span>{scholarshipDescription}</h2>

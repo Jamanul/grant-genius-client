@@ -4,13 +4,15 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
+import ApplicantsForm from "./ApplicantsForm";
 
 
 const CheckoutForm = ({singleData}) => {
   
   const axiosSecure = useAxiosSecure();
   const {user} =useAuth()
- 
+  const [hiddenElement,setHiddenElement]=useState(false)
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const [error, setError] = useState("");
@@ -32,6 +34,7 @@ const CheckoutForm = ({singleData}) => {
       .post(`/create-payment-intent`,{price: singleData.applicationFees})
       .then((res) => {console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret)
+                    
     });
   }, [axiosSecure, singleData.applicationFees]);
   const handleOnSubmit = async (event) => {
@@ -70,23 +73,18 @@ const CheckoutForm = ({singleData}) => {
     if(paymentIntent){
         console.log('payment Intent',paymentIntent)
         if(paymentIntent.status === 'succeeded'){
-            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click the button below to close</p>
-    <div className="modal-action">
-      <form method="dialog">
-        {/* if there is a button in form, it will close the modal */}
-        <button className="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+            toast.success('Payment done successfully')
+            setHiddenElement(true)
+        }
+        else{
+            toast.error('Something went wrongs')
+            setHiddenElement(false)
         }
     }
   };
   return (
-    <form onSubmit={handleOnSubmit}>
+    <div>
+        <form className={hiddenElement ? 'hidden': 'block'} onSubmit={handleOnSubmit}>
       <div className="border border-[#0AB99D] rounded-2xl p-4">
         <CardElement
           options={{
@@ -114,6 +112,8 @@ const CheckoutForm = ({singleData}) => {
       </button>
       <p className="text-red-500">{error}</p>
     </form>
+    <ApplicantsForm singleData={singleData} hiddenElement={hiddenElement}></ApplicantsForm>
+    </div>
   );
 };
 

@@ -25,7 +25,7 @@ const TopScholarship = () => {
                         <p><span className="font-bold">Application Deadline: </span>{singleScholarship.applicationDeadline}</p>
                       </div>
                       <div className="card-actions justify-end">
-                        <Link to={`/scholarship/${singleScholarship._id}`}><button className="btn bg-[#0AB99D] text-white">Details</button></Link>
+                        <Link to={`/scholarship/${singleScholarship.scholarshipId}`}><button className="btn bg-[#0AB99D] text-white">Details</button></Link>
                       </div>
                     </div>
                   </div>)
