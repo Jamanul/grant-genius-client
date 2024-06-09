@@ -96,7 +96,7 @@ const UserApplication = () => {
                   </Link>
                 </td>
                 <td>
-                <Link to='/edit'><button className="btn bg-[#0AB99D] text-white">
+                <Link to={`/dashboard/edit/${singleApplication._id}`}><button className="btn bg-[#0AB99D] text-white">
                       Edit
                     </button></Link>
                 </td>

@@ -20,6 +20,7 @@ import Dashboard from "./Layout/Dashboard.jsx";
 import UserHome from "./Pages/Dashboard/UserHome/UserHome.jsx";
 import UserApplication from "./Pages/Dashboard/UserApplication/UserApplication.jsx";
 import App from "./App.jsx";
+import EditApplication from "./Pages/Dashboard/UserApplication/EditApplication.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,6 @@ const router = createBrowserRouter([
             <ScholarshipDetails></ScholarshipDetails>
           </PrivateRoute>
         ),
-    
       },
       {
         path: "payment/:id",
@@ -78,8 +78,11 @@ const router = createBrowserRouter([
       {
         path: "my-application",
         element: <UserApplication></UserApplication>,
-       
       },
+      {
+        path: "edit/:id",
+        element:<EditApplication></EditApplication>
+      }
     ],
   },
 ]);

@@ -21,8 +21,8 @@ const ApplicantsForm = ({ hiddenElement, singleData }) => {
         "content-Type": "multipart/form-data",
       },
     });
-    //console.log(data);
-    //console.log(res.data);
+    console.log(data);
+    console.log(res.data);
     if (res.data.success) {
       const scholarshipData = {
         applicantName: user.displayName,

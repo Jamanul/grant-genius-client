@@ -26,7 +26,7 @@ const CheckoutForm = ({singleData}) => {
     //         return res.data
     //     }
     // })
-    // console.log(singleUniData)
+    console.log(singleData)
  
 
   useEffect(() => {

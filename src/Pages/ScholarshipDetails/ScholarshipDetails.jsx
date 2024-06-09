@@ -31,6 +31,7 @@ const ScholarshipDetails = () => {
         stipend,
         postDate,
         serviceCharge,
+        scholarshipId,
         applicationFees}=newScholarshipData
     return (
         <div>
@@ -47,7 +48,7 @@ const ScholarshipDetails = () => {
                     <h2 className="text-xl"><span className="font-bold text-2xl">Stipend : </span>{stipend} $</h2>
                     <h2 className="text-xl"><span className="font-bold text-2xl">Service Charge : </span>{serviceCharge} $</h2>
                     <h2 className="text-xl"><span className="font-bold text-2xl">Application Fees: </span>{applicationFees} $ per year</h2>
-                    <Link to={`/payment/${_id}`}><button className="btn bg-[#0AB99D] text-white">Apply Scholarship</button></Link>
+                    <Link to={`/payment/${scholarshipId}`}><button className="btn bg-[#0AB99D] text-white">Apply Scholarship</button></Link>
                 </div>
             </div>
         </div>
