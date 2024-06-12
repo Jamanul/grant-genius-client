@@ -3,14 +3,16 @@ import { Link, Outlet } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import { IoIosSchool } from "react-icons/io";
+  import { MdReviews } from "react-icons/md";
 
 
 const Dashboard = () => {
     return (
         <div className='flex gap-6'>
-            <div className="w-64 text-left p-4 space-y-2 text-white min-h-screen bg-[#0AB99D]">
+            <div className="w-80 text-left p-4 space-y-2 text-white min-h-screen bg-[#0AB99D]">
                 <Link to='/dashboard/user-dashboard' className="text-xl flex items-center gap-2"><FaUser/>My Profile</Link>
                 <Link to='/dashboard/my-application' className="text-xl flex items-center gap-2"><FaSchool/>My Application</Link>
+                <Link to='/dashboard/my-reviews' className="text-xl flex items-center gap-2"><MdReviews/>My review</Link>
                 <div className="divider divider-error"></div>
                 <Link to='/' className="text-xl flex items-center gap-2"><FaHouse/>Home</Link>
                 <Link to='/' className="text-xl flex items-center gap-2"><IoIosSchool/>All scholarship</Link>

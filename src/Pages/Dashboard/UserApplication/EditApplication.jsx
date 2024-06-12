@@ -22,12 +22,13 @@ const EditApplication = () => {
   //console.log(newScholarshipData);
   const image_key = import.meta.env.VITE_IMAGE_API_KEY;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_key}`;
+ 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue
   } = useForm();
-
   const onSubmit = async (data) => {
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -80,7 +81,9 @@ const EditApplication = () => {
             <span className="label-text">Phone Number</span>
           </label>
           <input
-            {...register("phoneNumber",{value:newScholarshipData.phoneNumber})}
+            {...register("phoneNumber")}
+            {...setValue('phoneNumber', newScholarshipData.phoneNumber)}
+            name="phoneNumber"
             type="number"
             placeholder="Phone Number"
             className="input border-[#0AB99D]"
@@ -96,6 +99,7 @@ const EditApplication = () => {
             type="file"
             required
             {...register("image")}
+            {...setValue('image', newScholarshipData.image)}
             className="file-input w-full bg-[#0AB99D] max-w-xs"
           />{" "}
           <br />
@@ -109,6 +113,7 @@ const EditApplication = () => {
           </label>
           <input
             {...register("address", { required: true })}
+            {...setValue('address', newScholarshipData.address)}
             type="text"
             placeholder="address"
             className="input border-[#0AB99D]"
@@ -126,6 +131,7 @@ const EditApplication = () => {
               </div>
               <select
                 {...register("gender", { required: true })}
+                {...setValue('gender', newScholarshipData.gender)}
                 className="select select-bordered"
               >
                 <option disabled selected>
@@ -146,6 +152,7 @@ const EditApplication = () => {
               </div>
               <select
                 {...register("degree", { required: true })}
+                {...setValue('degree', newScholarshipData.degree)}
                 className="select select-bordered"
               >
                 <option disabled selected>
@@ -168,6 +175,7 @@ const EditApplication = () => {
             </label>
             <input
               {...register("sscResult", { required: true })}
+              {...setValue('sscResult', newScholarshipData.sscResult)}
               type="number"
               placeholder="Ssc Result"
               className="input border-[#0AB99D]"
@@ -183,6 +191,7 @@ const EditApplication = () => {
             </label>
             <input
               {...register("hscResult", { required: true })}
+              {...setValue('hscResult', newScholarshipData.hscResult)}
               type="number"
               placeholder="Hsc Result"
               className="input border-[#0AB99D]"
@@ -199,6 +208,7 @@ const EditApplication = () => {
               </div>
               <select
                 {...register("studyGap", { required: true })}
+                {...setValue('studyGap', newScholarshipData.studyGap)}
                 className="select select-bordered"
               >
                 <option disabled selected>

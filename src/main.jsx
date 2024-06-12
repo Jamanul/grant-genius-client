@@ -21,6 +21,7 @@ import UserHome from "./Pages/Dashboard/UserHome/UserHome.jsx";
 import UserApplication from "./Pages/Dashboard/UserApplication/UserApplication.jsx";
 import App from "./App.jsx";
 import EditApplication from "./Pages/Dashboard/UserApplication/EditApplication.jsx";
+import MyReviews from "./Pages/Dashboard/MyReviews/MyReviews.jsx";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: "edit/:id",
         element:<EditApplication></EditApplication>
+      },
+      {
+        path: "my-reviews",
+        element:<MyReviews></MyReviews>
       }
     ],
   },

@@ -3,13 +3,49 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const UserApplication = () => {
   const { user } = useAuth();
   const [appliedApplications, setAppliedApplications] = useState([]);
 
   const axiosPublic = useAxiosPublic();
-
+  const handleReview = (e) => {
+    // e.preventDefault();
+    //console.log(e.target.review.value);
+    const form = e.target
+    const review =form.review.value
+    const rating = form.rating.value
+    const scholarshipName = form.scholarshipName.value
+    const universityName =form.universityName.value
+    const scholarshipId =form.scholarshipId.value
+    const reviewData = {
+      review,
+      rating,
+      scholarshipName,
+      universityName,
+      scholarshipId,
+      userName : user.displayName,
+      userImg : user.photoURL,
+      email : user.email,
+      appliedDate: new Date(Date()).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+    }
+    axiosPublic.post('/review',reviewData)
+    .then(res=>{
+      //console.log(res.data)
+      if(res.data.acknowledged){
+        toast.success('Your review has been posted.')
+      }
+      
+    })
+    .catch(()=>{
+      toast.error('something went wrong')
+    })
+  };
   useEffect(() => {
     axiosPublic.get(`/applied-scholarships?email=${user.email}`).then((res) => {
       setAppliedApplications(res.data);
@@ -37,7 +73,7 @@ const UserApplication = () => {
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",
-            icon: "success"
+            icon: "success",
           });
         });
       }
@@ -61,7 +97,8 @@ const UserApplication = () => {
               <th>Application Status</th>
               <th>Details</th>
               <th>Edit</th>
-              <th>Delete</th>
+              <th>Cancel</th>
+              <th>Review</th>
             </tr>
           </thead>
           <tbody>
@@ -96,9 +133,11 @@ const UserApplication = () => {
                   </Link>
                 </td>
                 <td>
-                <Link to={`/dashboard/edit/${singleApplication._id}`}><button className="btn bg-[#0AB99D] text-white">
+                  <Link to={`/dashboard/edit/${singleApplication._id}`}>
+                    <button className="btn bg-[#0AB99D] text-white">
                       Edit
-                    </button></Link>
+                    </button>
+                  </Link>
                 </td>
                 <td>
                   <button
@@ -106,6 +145,98 @@ const UserApplication = () => {
                     className="btn bg-red-500 text-white"
                   >
                     Cancel
+                  </button>
+                </td>
+                <td>
+                  <button className=" ">
+                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                    <button
+                      className="btn bg-[#0AB99D] text-white"
+                      onClick={() =>
+                        document.getElementById("my_modal_1").showModal()
+                      }
+                    >
+                      Review
+                    </button>
+                    <dialog id="my_modal_1" className="modal">
+                      <div className="modal-box">
+                        <h3 className="font-bold text-lg">
+                          Please give your review.
+                        </h3>
+                        <p className="py-4">Press ESC key close</p>
+                        <div className="">
+                          <form onSubmit={handleReview} method="dialog">
+                            <div className="form-control">
+                              <label className="label">
+                                <span className="label-text">Your Review</span>
+                              </label>
+                              <input
+                                type="text"
+                                name="review"
+                                placeholder="Your Review"
+                                className="input border-[#0AB99D]"
+                                required
+                              />
+                            </div>
+                            <div className="form-control">
+                              <label className="form-control w-full">
+                                <div className="label">
+                                  <span className="label-text">rating</span>
+                                </div>
+                                <select
+                                  name="rating"
+                                  className="select select-bordered"
+                                  required
+                                >
+                                  <option disabled selected>
+                                    Pick one
+                                  </option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </label>
+                            </div>
+                            <div className="hidden">
+                              <input
+                                type="text"
+                                name="scholarshipName"
+                                defaultValue={
+                                  singleApplication.subjectName
+                                }
+                                placeholder=""
+                                className="input border-[#0AB99D]"
+                                required
+                              />
+                              <input
+                                type="text"
+                                name="universityName"
+                                defaultValue={singleApplication.universityName}
+                                placeholder="Your Review"
+                                className="input border-[#0AB99D]"
+                                required
+                              />
+                              <input
+                                type="text"
+                                name="scholarshipId"
+                                defaultValue={singleApplication.scholarshipId}
+                                placeholder="Your Review"
+                                className="input border-[#0AB99D]"
+                                required
+                              />
+                            </div>
+                            <button
+                              onSubmit={handleReview}
+                              className="btn my-2 bg-[#0AB99D] text-white"
+                            >
+                              Give Review
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </dialog>
                   </button>
                 </td>
               </tr>
