@@ -16,7 +16,6 @@ const MyReviews = () => {
         })
     },[axiosPublic, user.email])
     const handleDelete = (id)=>{
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -75,7 +74,7 @@ const MyReviews = () => {
                 </td>
                 <td>{review.appliedDate}</td>
                 <td>
-                  <Link to={`/dashboard/edit/${review._id}`}>
+                  <Link to={`/dashboard/review-edit/${review._id}`}>
                     <button className="btn bg-[#0AB99D] text-white">
                       Edit
                     </button>
