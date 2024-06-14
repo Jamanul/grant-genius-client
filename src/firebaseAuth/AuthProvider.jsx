@@ -39,17 +39,17 @@ const AuthProvider = ({children}) => {
                 const userInfo = {email: currentUser?.email}
                 axiosPublic.post('/jwt',userInfo)
                 .then(result=>{
-                    if(result.data.token){
+                    if(result.data){
                         localStorage.setItem('token-org',result.data.token)
+                        setLoading(false)
                     }
                     else{
                         localStorage.removeItem('token-org')
-                        
+                        setLoading(false)
                     }
-                })
-                
+                })    
             }
-            setLoading(false)
+            
         })
         return ()=>{
             unsubscribe()
