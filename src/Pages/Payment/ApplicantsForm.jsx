@@ -30,7 +30,7 @@ const ApplicantsForm = ({ hiddenElement, singleData }) => {
         userEmail: user.email,
         appliedDate: new Date(Date()).toLocaleDateString("en-US", {
           year: "numeric",
-          month: "long",
+          month: "numeric",
           day: "numeric",
         }),
         scholarshipId : singleData.scholarshipId,

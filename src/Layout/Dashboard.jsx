@@ -5,15 +5,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { IoIosSchool } from "react-icons/io";
 import { MdReviews } from "react-icons/md";
 import useAdmin from "../Hooks/useAdmin";
+import useModerator from "../Hooks/useModerator";
 
 const Dashboard = () => {
   // const isAdmin = true;
   const [isAdmin,] = useAdmin()
-  //console.log(isAdmin)
+  const [isModerator,]=useModerator()
+   console.log(isAdmin)
+  console.log(isModerator,'mod')
   return (
     <div className="flex gap-6">
       <div className="w-80 text-left p-4 space-y-2 text-white min-h-screen bg-[#0AB99D]">
-        {isAdmin ? (
+        {isAdmin && !isModerator ? (
           <>
             <Link
              to='/dashboard/users'
@@ -23,7 +26,14 @@ const Dashboard = () => {
             Manage Users
             </Link>
           </>
-        ) : (
+        ) : isModerator ? (<>
+            <Link to='manage-scholarship'
+             className="text-xl flex items-center gap-2"
+            >
+            Manage Scholarship
+            </Link>
+        
+        </> ):(
           <>
             <Link
               to="/dashboard/user-dashboard"

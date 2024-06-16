@@ -24,6 +24,8 @@ import EditApplication from "./Pages/Dashboard/UserApplication/EditApplication.j
 import MyReviews from "./Pages/Dashboard/MyReviews/MyReviews.jsx";
 import EditReview from "./Pages/Dashboard/MyReviews/EditReview.jsx";
 import ManageUsers from "./Pages/Dashboard/ManageUsers/ManageUsers.jsx";
+import ManageScholarship from "./Pages/Dashboard/ManageScholarship/ManageScholarship.jsx";
+import EditScholarship from "./Pages/Dashboard/EditScholarship/EditScholarship.jsx";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +99,14 @@ const router = createBrowserRouter([
       {
         path: "users",
         element:<ManageUsers></ManageUsers>
+      },
+      {
+        path: "manage-scholarship",
+        element:<ManageScholarship></ManageScholarship>
+      },
+      {
+        path: "edit-scholarship/:id",
+        element: <EditScholarship></EditScholarship>
       }
     ],
   },
