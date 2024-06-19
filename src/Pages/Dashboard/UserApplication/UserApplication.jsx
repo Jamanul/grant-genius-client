@@ -15,14 +15,14 @@ const UserApplication = () => {
     //console.log(e.target.review.value);
     const form = e.target
     const review =form.review.value
-    const rating = form.rating.value
-    const scholarshipName = form.scholarshipName.value
+    const rating = parseInt(form.rating.value)
+    const subjectName = form.scholarshipName.value
     const universityName =form.universityName.value
-    const scholarshipId =form.scholarshipId.value
+    const scholarshipId =parseInt(form.scholarshipId.value)
     const reviewData = {
       review,
       rating,
-      scholarshipName,
+      subjectName,
       universityName,
       scholarshipId,
       userName : user.displayName,
@@ -30,7 +30,7 @@ const UserApplication = () => {
       email : user.email,
       appliedDate: new Date(Date()).toLocaleDateString("en-US", {
         year: "numeric",
-        month: "long",
+        month: "numeric",
         day: "numeric",
       }),
     }

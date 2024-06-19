@@ -3,12 +3,11 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-
-
-
+import ReviewSlider from "../../Components/ReviewSlider/ReviewSlider";
 const ScholarshipDetails = () => {
     const axiosPublic =useAxiosPublic()
     const [newScholarshipData,setNewScholarshipData]=useState([])
+    
     const {id}=useParams()
     //console.log(id)
     useEffect(()=>{
@@ -18,8 +17,6 @@ const ScholarshipDetails = () => {
             setNewScholarshipData(res.data)
         })
     },[axiosPublic,id])
-    //const newScholarshipData = useLoaderData()
-    //console.log(newScholarshipData)
     const { _id,
         universityName,
         universityLogo,
@@ -51,6 +48,7 @@ const ScholarshipDetails = () => {
                     <Link to={`/payment/${scholarshipId}`}><button className="btn bg-[#0AB99D] text-white">Apply Scholarship</button></Link>
                 </div>
             </div>
+            <ReviewSlider></ReviewSlider>
         </div>
     );
 };

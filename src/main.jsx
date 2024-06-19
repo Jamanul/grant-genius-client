@@ -28,6 +28,7 @@ import ManageScholarship from "./Pages/Dashboard/ManageScholarship/ManageScholar
 import EditScholarship from "./Pages/Dashboard/EditScholarship/EditScholarship.jsx";
 import AddScholarship from "./Pages/Dashboard/AddScholarship/AddScholarship.jsx";
 import ManageappliedScholarship from "./Pages/Dashboard/ManageAppliedScholarship/ManageappliedScholarship.jsx";
+import AllReviews from "./Pages/Dashboard/AllReviews/AllReviews.jsx";
 
 const router = createBrowserRouter([
   {
@@ -117,6 +118,10 @@ const router = createBrowserRouter([
       {
         path:"manage-applied-scholarship",
         element: <ManageappliedScholarship></ManageappliedScholarship>
+      },
+      {
+        path: "all-reviews",
+        element: <AllReviews></AllReviews>
       }
     ],
   },

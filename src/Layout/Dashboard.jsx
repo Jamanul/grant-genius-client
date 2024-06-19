@@ -26,7 +26,7 @@ const Dashboard = () => {
             Manage Users
             </Link>
           </>
-        ) : !isModerator ? (<>
+        ) : isModerator ? (<>
             <Link to='manage-scholarship'
              className="text-xl flex items-center gap-2"
             >
@@ -41,6 +41,11 @@ const Dashboard = () => {
              className="text-xl flex items-center gap-2"
             >
             Manage Applied Scholarship
+            </Link>
+            <Link to='all-reviews'
+             className="text-xl flex items-center gap-2"
+            >
+          All Reviews
             </Link>
 
         </> ):(
