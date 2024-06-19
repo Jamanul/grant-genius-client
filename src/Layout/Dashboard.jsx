@@ -32,7 +32,17 @@ const Dashboard = () => {
             >
             Manage Scholarship
             </Link>
-        
+            <Link to='add-scholarship'
+             className="text-xl flex items-center gap-2"
+            >
+            Add Scholarship
+            </Link>
+            <Link to='manage-applied-scholarship'
+             className="text-xl flex items-center gap-2"
+            >
+            Manage Applied Scholarship
+            </Link>
+
         </> ):(
           <>
             <Link

@@ -26,6 +26,8 @@ import EditReview from "./Pages/Dashboard/MyReviews/EditReview.jsx";
 import ManageUsers from "./Pages/Dashboard/ManageUsers/ManageUsers.jsx";
 import ManageScholarship from "./Pages/Dashboard/ManageScholarship/ManageScholarship.jsx";
 import EditScholarship from "./Pages/Dashboard/EditScholarship/EditScholarship.jsx";
+import AddScholarship from "./Pages/Dashboard/AddScholarship/AddScholarship.jsx";
+import ManageappliedScholarship from "./Pages/Dashboard/ManageAppliedScholarship/ManageappliedScholarship.jsx";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +109,14 @@ const router = createBrowserRouter([
       {
         path: "edit-scholarship/:id",
         element: <EditScholarship></EditScholarship>
+      },
+      {
+        path: "add-scholarship",
+        element: <AddScholarship></AddScholarship>
+      },
+      {
+        path:"manage-applied-scholarship",
+        element: <ManageappliedScholarship></ManageappliedScholarship>
       }
     ],
   },

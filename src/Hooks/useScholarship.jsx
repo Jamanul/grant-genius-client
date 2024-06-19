@@ -8,7 +8,6 @@ const useScholarship = () => {
     const axiosPublic = useAxiosPublic()
     const {data:scholarshipData,refetch}=useQuery({
         queryKey: ['scholarshipData'],
-        enabled: !loading ,
         queryFn: async ()=>{
             const res = await axiosPublic.get('/all-scholarship')
             //console.log(res.data)

@@ -12,7 +12,7 @@ const ManageScholarship = () => {
         axiosSecure.delete(`/all-scholarship-delete/${id}`)
         .then(res=>{
           if(res.data.deletedCount>0){
-            toast.success('deleted a user')
+            toast.success('deleted a scholarship')
             refetch()
           }
           //console.log(res.data)
