@@ -32,7 +32,7 @@ const ManageScholarship = () => {
         <th>University Name</th>
         <th>Scholarship Category</th>
         <th>Applied Degree</th>
-        <th>Applied Fee</th>
+        <th>Application Fee</th>
         <th>Details</th>
         <th>Edit</th>
         <th>Delete</th>

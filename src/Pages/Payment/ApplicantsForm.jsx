@@ -45,6 +45,7 @@ const ApplicantsForm = ({ hiddenElement, singleData }) => {
         universityName: data.universityName,
         scholarshipCategory: data.scholarshipCategory,
         subjectName: data.subjectCategory,
+        scholarshipName: singleData.scholarshipName,
         universityLocation: singleData.universityLocation,
         applicationFees:singleData.applicationFees,
         serviceCharge: singleData.serviceCharge

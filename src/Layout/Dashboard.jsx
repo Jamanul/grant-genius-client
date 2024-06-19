@@ -11,8 +11,8 @@ const Dashboard = () => {
   // const isAdmin = true;
   const [isAdmin,] = useAdmin()
   const [isModerator,]=useModerator()
-   console.log(isAdmin)
-  console.log(isModerator,'mod')
+  //  console.log(isAdmin)
+  // console.log(isModerator,'mod')
   return (
     <div className="flex gap-6">
       <div className="w-80 text-left p-4 space-y-2 text-white min-h-screen bg-[#0AB99D]">
@@ -26,7 +26,7 @@ const Dashboard = () => {
             Manage Users
             </Link>
           </>
-        ) : isModerator ? (<>
+        ) : !isModerator ? (<>
             <Link to='manage-scholarship'
              className="text-xl flex items-center gap-2"
             >
