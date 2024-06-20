@@ -9,46 +9,62 @@ import useModerator from "../Hooks/useModerator";
 
 const Dashboard = () => {
   // const isAdmin = true;
-  const [isAdmin,] = useAdmin()
-  const [isModerator,]=useModerator()
+  const [isAdmin] = useAdmin();
+  const [isModerator] = useModerator();
   //  console.log(isAdmin)
-  // console.log(isModerator,'mod')
+  //  console.log(isModerator,'mod')
   return (
     <div className="flex gap-6">
       <div className="w-80 text-left p-4 space-y-2 text-white min-h-screen bg-[#0AB99D]">
         {isAdmin && !isModerator ? (
           <>
             <Link
-             to='/dashboard/users'
-             className="text-xl flex items-center gap-2"
+              to="/dashboard/admin-dashboard"
+              className="text-xl flex items-center gap-2"
             >
-            <FaUser></FaUser>
-            Manage Users
+              <FaUser />
+              My Profile
+            </Link>
+            <Link
+              to="/dashboard/users"
+              className="text-xl flex items-center gap-2"
+            >
+              <FaUser></FaUser>
+              Manage Users
             </Link>
           </>
-        ) : isModerator ? (<>
-            <Link to='manage-scholarship'
-             className="text-xl flex items-center gap-2"
+        ) : !isAdmin && isModerator ? (
+          <>
+            <Link
+              to="/dashboard/moderator-dashboard"
+              className="text-xl flex items-center gap-2"
             >
-            Manage Scholarship
+              
+              My Profile
             </Link>
-            <Link to='add-scholarship'
-             className="text-xl flex items-center gap-2"
+            <Link
+              to="manage-scholarship"
+              className="text-xl flex items-center gap-2"
             >
-            Add Scholarship
+              Manage Scholarship
             </Link>
-            <Link to='manage-applied-scholarship'
-             className="text-xl flex items-center gap-2"
+            <Link
+              to="add-scholarship"
+              className="text-xl flex items-center gap-2"
             >
-            Manage Applied Scholarship
+              Add Scholarship
             </Link>
-            <Link to='all-reviews'
-             className="text-xl flex items-center gap-2"
+            <Link
+              to="manage-applied-scholarship"
+              className="text-xl flex items-center gap-2"
             >
-          All Reviews
+              Manage Applied Scholarship
             </Link>
-
-        </> ):(
+            <Link to="all-reviews" className="text-xl flex items-center gap-2">
+              All Reviews
+            </Link>
+          </>
+        ) : (
           <>
             <Link
               to="/dashboard/user-dashboard"

@@ -29,6 +29,8 @@ import EditScholarship from "./Pages/Dashboard/EditScholarship/EditScholarship.j
 import AddScholarship from "./Pages/Dashboard/AddScholarship/AddScholarship.jsx";
 import ManageappliedScholarship from "./Pages/Dashboard/ManageAppliedScholarship/ManageappliedScholarship.jsx";
 import AllReviews from "./Pages/Dashboard/AllReviews/AllReviews.jsx";
+import AdminHome from "./Pages/Dashboard/UserHome/AdminHome.jsx";
+import ModeratorHome from "./Pages/Dashboard/UserHome/ModeratorHome.jsx";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
       {
         path: "user-dashboard",
         element: <UserHome></UserHome>,
+      },
+      {
+        path: "admin-dashboard",
+        element: <AdminHome></AdminHome>,
+      },
+      {
+        path: "moderator-dashboard",
+        element: <ModeratorHome></ModeratorHome>,
       },
       {
         path: "my-application",

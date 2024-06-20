@@ -11,8 +11,8 @@ const useModerator = () => {
         enabled: !!user?.email && !loading,
         queryFn: async ()=>{
             const res = await axiosSecure.get(`/user/moderator/${user?.email}`)
-            console.log(res.data)
-            return res.data
+            //console.log(res.data)
+            return res.data.moderator
         }
     })
     return [isModerator,isModeratorLoading]

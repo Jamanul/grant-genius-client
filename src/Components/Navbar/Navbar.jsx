@@ -3,9 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa6";
+import useAdmin from "../../Hooks/useAdmin";
+import useModerator from "../../Hooks/useModerator";
 
 const Navbar = () => {
   const {user,logoutUser}=useAuth()
+  const [isAdmin,] = useAdmin()
+  const [isModerator,]=useModerator()
   const handleLogout =()=>{
     logoutUser()
     .then(()=>{
@@ -20,9 +24,15 @@ const Navbar = () => {
       <li>
       <NavLink to="/all-scholarship">All Scholarship</NavLink>
       </li>
-      <li>
-      <NavLink to="/dashboard/user-dashboard">User Dashboard</NavLink>
-      </li>
+      {
+        isAdmin && !isModerator ? <><li>
+        <NavLink to="/dashboard/admin-dashboard">Admin Dashboard</NavLink>
+        </li></> : !isAdmin && isModerator ? <><li>
+        <NavLink to="/dashboard/moderator-dashboard">Moderator Dashboard</NavLink>
+        </li></> : <><li>
+        <NavLink to="/dashboard/user-dashboard">User Dashboard</NavLink>
+        </li></>
+      }
     </>
   );
   return (
