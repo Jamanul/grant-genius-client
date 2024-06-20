@@ -22,24 +22,45 @@ const Dashboard = () => {
               to="/dashboard/admin-dashboard"
               className="text-xl flex items-center gap-2"
             >
-              <FaUser />
+              
               My Profile
             </Link>
             <Link
               to="/dashboard/users"
               className="text-xl flex items-center gap-2"
             >
-              <FaUser></FaUser>
+              
               Manage Users
             </Link>
+            <Link
+              to="add-scholarship-admin"
+              className="text-xl flex items-center gap-2"
+            >
+              Add Scholarship
+            </Link>
+            <Link
+              to="manage-applied-scholarship-admin"
+              className="text-xl flex items-center gap-2"
+            >
+              Manage Applied Scholarship
+            </Link>
+            <Link
+              to="manage-scholarship-admin"
+              className="text-xl flex items-center gap-2"
+            >
+              Manage Scholarship
+            </Link>
+            <Link to="all-reviews-admin" className="text-xl flex items-center gap-2">
+              All Reviews
+            </Link>
           </>
+          
         ) : !isAdmin && isModerator ? (
           <>
             <Link
               to="/dashboard/moderator-dashboard"
               className="text-xl flex items-center gap-2"
             >
-              
               My Profile
             </Link>
             <Link
@@ -95,7 +116,7 @@ const Dashboard = () => {
           <FaHouse />
           Home
         </Link>
-        <Link to="/" className="text-xl flex items-center gap-2">
+        <Link to="/all-scholarship" className="text-xl flex items-center gap-2">
           <IoIosSchool />
           All scholarship
         </Link>

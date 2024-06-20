@@ -1,61 +1,48 @@
-import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../Hooks/useAuth";
-import { Link } from "react-router-dom";
-import { MdDelete } from "react-icons/md";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import useAuth from '../../../Hooks/useAuth';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure/useAxiosSecure';
 
-const ManageappliedScholarship = () => {
-  const axiosSecure = useAxiosSecure();
-  const [singleScholarshipData, setScholarshipSingleData] = useState([]);
-  const [allAppliedScholarship, setAllAppliedScholarship] = useState([]);
-  const { loading, user } = useAuth();
-  // const {data: allAppliedScholarship}=useQuery({
-  //     queryKey: ['allAppliedScholarship'],
-  //     enabled: !loading && !!user,
-  //     queryFn: async ()=>{
-  //         const res = await axiosSecure('/all-applied-scholarship')
-  //         return res.data
-  //     }
-  // })
-  useEffect(() => {
-    axiosSecure.get("/all-applied-scholarship").then((res) => {
-      setAllAppliedScholarship(res.data);
-    });
-  }, [axiosSecure]);
-
-  const handleFeedback = (e) => {
-    const form = e.target;
-    const feedback = form.feedback.value;
-    const id = form.id.value;
-    //console.log(id, feedback);
-    axiosSecure.patch(`/applied-application-feedback/${id}`,{feedback})
-    .then(res=>{
-        if(res.data.modifiedCount>0){
-            toast.success('You have given a feedback')
+const ManageAppliedScholarshipAdmin = () => {
+    const axiosSecure = useAxiosSecure();
+    const [singleScholarshipData, setScholarshipSingleData] = useState([]);
+    const [allAppliedScholarship, setAllAppliedScholarship] = useState([]);
+    const { loading, user } = useAuth();
+    useEffect(() => {
+        axiosSecure.get("/all-applied-scholarship-admin").then((res) => {
+          setAllAppliedScholarship(res.data);
+        });
+      }, [axiosSecure]);
+      const handleFeedback = (e) => {
+        const form = e.target;
+        const feedback = form.feedback.value;
+        const id = form.id.value;
+        //console.log(id, feedback);
+        axiosSecure.patch(`/applied-application-feedback-admin/${id}`,{feedback})
+        .then(res=>{
+            if(res.data.modifiedCount>0){
+                toast.success('You have given a feedback')
+            }
+        })
+      };
+      const handleTwoFunction = (id,modal) => {
+        document.getElementById(`my_modal_${modal}`).showModal();
+        //console.log(id);
+        const selectedOne = allAppliedScholarship.filter(
+          (singleData) => singleData._id === id
+        );
+        //console.log(selectedOne);
+        setScholarshipSingleData(selectedOne);
+      };
+       const handleCancel =(id)=>{
+        axiosSecure.patch(`/applied-application-status-admin/${id}`,{status: 'rejected'})
+        .then(res=>{console.log(res.data)
+        toast.success('You have canceled this application.')
         }
-    })
-  };
-  const handleTwoFunction = (id,modal) => {
-    document.getElementById(`my_modal_${modal}`).showModal();
-    //console.log(id);
-    const selectedOne = allAppliedScholarship.filter(
-      (singleData) => singleData._id === id
-    );
-    //console.log(selectedOne);
-    setScholarshipSingleData(selectedOne);
-  };
-   const handleCancel =(id)=>{
-    axiosSecure.patch(`/applied-application-status/${id}`,{status: 'rejected'})
-    .then(res=>{console.log(res.data)
-      toast.success('You have canceled this application.')
-    })
-   }
-  //console.log(singleScholarshipData);
-  //console.log(allAppliedScholarship)
-  return (
-    <div>
+        )
+       }
+    return (
+        <div>
       <h2 className="text-4xl">Manage Applied Scholarship</h2>
       <div className="overflow-x-auto">
         <table className="table">
@@ -194,7 +181,7 @@ const ManageappliedScholarship = () => {
         </table>
       </div>
     </div>
-  );
+    );
 };
 
-export default ManageappliedScholarship;
+export default ManageAppliedScholarshipAdmin;

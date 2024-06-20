@@ -31,6 +31,11 @@ import ManageappliedScholarship from "./Pages/Dashboard/ManageAppliedScholarship
 import AllReviews from "./Pages/Dashboard/AllReviews/AllReviews.jsx";
 import AdminHome from "./Pages/Dashboard/UserHome/AdminHome.jsx";
 import ModeratorHome from "./Pages/Dashboard/UserHome/ModeratorHome.jsx";
+import AddScholarshipAdmin from "./Pages/Dashboard/AddScholarship/AddScholarshipAdmin.jsx";
+import ManageAppliedScholarshipAdmin from "./Pages/Dashboard/ManageAppliedScholarship/ManageAppliedScholarshipAdmin.jsx";
+import ManageScholarshipAdmin from "./Pages/Dashboard/ManageScholarship/ManageScholarshipAdmin.jsx";
+import EditScholarshipAdmin from "./Pages/Dashboard/EditScholarship/EditScholarshipAdmin.jsx";
+import AllReviewsAdmin from "./Pages/Dashboard/AllReviews/AllReviewsAdmin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -118,20 +123,40 @@ const router = createBrowserRouter([
         element:<ManageScholarship></ManageScholarship>
       },
       {
+        path: "manage-scholarship-admin",
+        element:<ManageScholarshipAdmin></ManageScholarshipAdmin>
+      },
+      {
         path: "edit-scholarship/:id",
         element: <EditScholarship></EditScholarship>
+      },
+      {
+        path: "edit-scholarship-admin/:id",
+        element: <EditScholarshipAdmin></EditScholarshipAdmin>
       },
       {
         path: "add-scholarship",
         element: <AddScholarship></AddScholarship>
       },
       {
+        path: "add-scholarship-admin",
+        element: <AddScholarshipAdmin></AddScholarshipAdmin>
+      },
+      {
         path:"manage-applied-scholarship",
         element: <ManageappliedScholarship></ManageappliedScholarship>
       },
       {
+        path:"manage-applied-scholarship-admin",
+        element: <ManageAppliedScholarshipAdmin></ManageAppliedScholarshipAdmin>
+      },
+      {
         path: "all-reviews",
         element: <AllReviews></AllReviews>
+      },
+      {
+        path: "all-reviews-admin",
+        element: <AllReviewsAdmin></AllReviewsAdmin>
       }
     ],
   },
