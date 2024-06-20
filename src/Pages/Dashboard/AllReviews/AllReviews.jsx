@@ -5,15 +5,17 @@ import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 const AllReviews = () => {
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic()
   const [reviews, setReviews] = useState([]);
   
   useEffect(() => {
-    axiosSecure.get("/all-reviews").then((res) => {
+    axiosPublic.get("/all-reviews").then((res) => {
       setReviews(res.data);
     });
-  }, [axiosSecure]);
+  }, [axiosPublic]);
   //console.log(reviews);
   const handleDeleteReview = (id) =>{
     axiosSecure.delete(`/review-delete/${id}`)

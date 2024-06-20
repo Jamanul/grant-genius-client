@@ -7,7 +7,8 @@ import ReviewSlider from "../../Components/ReviewSlider/ReviewSlider";
 const ScholarshipDetails = () => {
     const axiosPublic =useAxiosPublic()
     const [newScholarshipData,setNewScholarshipData]=useState([])
-    
+    const [reviews,setReviews]=useState([])
+    //console.log(reviews)
     const {id}=useParams()
     //console.log(id)
     useEffect(()=>{
@@ -30,6 +31,17 @@ const ScholarshipDetails = () => {
         serviceCharge,
         scholarshipId,
         applicationFees}=newScholarshipData
+        //console.log(scholarshipId)
+        useEffect(()=>{
+            if(scholarshipId){
+                axiosPublic.get(`/reviews?scholarshipId=${scholarshipId}`)
+            .then(res=>{
+                //console.log(res.data)
+                setReviews(res.data)
+            })
+            }
+            
+        },[axiosPublic, scholarshipId])
     return (
         <div>
             <div className="flex flex-col md:flex-row gap-6">
@@ -48,7 +60,7 @@ const ScholarshipDetails = () => {
                     <Link to={`/payment/${scholarshipId}`}><button className="btn bg-[#0AB99D] text-white">Apply Scholarship</button></Link>
                 </div>
             </div>
-            <ReviewSlider></ReviewSlider>
+            <ReviewSlider reviews={reviews}></ReviewSlider>
         </div>
     );
 };

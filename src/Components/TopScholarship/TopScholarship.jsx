@@ -12,7 +12,7 @@ const TopScholarship = () => {
             <h2 className="mb-6 text-center">Discover amazing opportunities to take your life to another level</h2>
             <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {
-                    scholarshipData?.slice(6).map(singleScholarship=><div key={singleScholarship._id} className="card w-96 bg-base-100 shadow-xl">
+                    scholarshipData?.slice(0,6).map(singleScholarship=><div key={singleScholarship._id} className="card w-96 bg-base-100 shadow-xl">
                     <figure><img className="w-80 relative h-52" src={singleScholarship.universityLogo} alt="Shoes" /></figure>
                     <p className="bg-[#0AB99D] absolute top-10 left-12 text-white px-4 py-2 rounded-md">{singleScholarship.scholarshipCategory}</p>
                     <div className="space-y-2">

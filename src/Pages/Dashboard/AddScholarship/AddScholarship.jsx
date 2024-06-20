@@ -27,6 +27,7 @@ const AddScholarship = () => {
         universityLogo: res.data.data.display_url,
         scholarshipName: data.scholarshipName,
         appliedDegree: data.appliedDegree,
+        subjectName : data.subjectName,
         scholarshipDescription: data.scholarshipDescription,
         serviceCharge: parseInt(data.serviceCharge),
         applicationFees: parseInt(data.applicationFees),
