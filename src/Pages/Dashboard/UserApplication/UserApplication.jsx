@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
 const UserApplication = () => {
   const { user } = useAuth();
   const [appliedApplications, setAppliedApplications] = useState([]);
-
+  const [singleScholarshipData, setScholarshipSingleData] = useState([]);
   const axiosPublic = useAxiosPublic();
+  const navigate =useNavigate()
   const handleReview = (e) => {
     // e.preventDefault();
     //console.log(e.target.review.value);
@@ -51,7 +52,15 @@ const UserApplication = () => {
       setAppliedApplications(res.data);
     });
   }, [axiosPublic, user.email]);
-
+  const handleTwoFunction = (id,modal) => {
+    document.getElementById(`my_modal_${modal}`).showModal();
+    //console.log(id);
+    const selectedOne = appliedApplications.filter(
+      (singleData) => singleData._id === id
+    );
+    console.log(selectedOne);
+    setScholarshipSingleData(selectedOne);
+  };
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -79,7 +88,18 @@ const UserApplication = () => {
       }
     });
   };
-
+  const handleEditRoute =(data)=>{
+    //console.log(data)
+    if(data.status === 'processing'){
+      toast.error('You can not edit application while processing')
+    }
+    if(data.status === 'rejected'){
+      toast.error('you can not edit application while it already got rejected')
+    }
+    else(
+      navigate(`/dashboard/edit/${data._id}`)
+    )
+  }
   return (
     <div>
       <h2 className="text-4xl">My applications</h2>
@@ -133,11 +153,16 @@ const UserApplication = () => {
                   </Link>
                 </td>
                 <td>
-                  <Link to={`/dashboard/edit/${singleApplication._id}`}>
+                  {/* <Link to={`/dashboard/edit/${singleApplication._id}`}>
                     <button className="btn bg-[#0AB99D] text-white">
                       Edit
                     </button>
-                  </Link>
+                  </Link> */}
+                 
+                    <button onClick={()=>handleEditRoute(singleApplication)} className="btn bg-[#0AB99D] text-white">
+                      Edit
+                    </button>
+                 
                 </td>
                 <td>
                   <button
@@ -152,9 +177,7 @@ const UserApplication = () => {
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
                     <button
                       className="btn bg-[#0AB99D] text-white"
-                      onClick={() =>
-                        document.getElementById("my_modal_1").showModal()
-                      }
+                      onClick={() => handleTwoFunction(singleApplication._id,'1')}
                     >
                       Review
                     </button>
@@ -203,9 +226,7 @@ const UserApplication = () => {
                               <input
                                 type="text"
                                 name="scholarshipName"
-                                defaultValue={
-                                  singleApplication.subjectName
-                                }
+                                defaultValue={singleScholarshipData[0]?.scholarshipName}
                                 placeholder=""
                                 className="input border-[#0AB99D]"
                                 required
@@ -213,7 +234,7 @@ const UserApplication = () => {
                               <input
                                 type="text"
                                 name="universityName"
-                                defaultValue={singleApplication.universityName}
+                                defaultValue={singleScholarshipData[0]?.universityName}
                                 placeholder="Your Review"
                                 className="input border-[#0AB99D]"
                                 required
@@ -221,7 +242,7 @@ const UserApplication = () => {
                               <input
                                 type="text"
                                 name="scholarshipId"
-                                defaultValue={singleApplication.scholarshipId}
+                                defaultValue={singleScholarshipData[0]?.scholarshipId}
                                 placeholder="Your Review"
                                 className="input border-[#0AB99D]"
                                 required

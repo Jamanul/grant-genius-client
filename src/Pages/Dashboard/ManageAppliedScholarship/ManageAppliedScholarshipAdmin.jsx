@@ -20,9 +20,14 @@ const ManageAppliedScholarshipAdmin = () => {
         //console.log(id, feedback);
         axiosSecure.patch(`/applied-application-feedback-admin/${id}`,{feedback})
         .then(res=>{
-            if(res.data.modifiedCount>0){
-                toast.success('You have given a feedback')
-            }
+          if (res.data) {
+            toast.success("You have given a feedback");
+            axiosSecure
+              .patch(`/applied-application-status-admin/${id}`, { status: "processing" })
+              .then((res) => {
+                console.log(res.data);
+              });
+          }
         })
       };
       const handleTwoFunction = (id,modal) => {

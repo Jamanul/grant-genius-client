@@ -26,7 +26,7 @@ const MyReviews = () => {
             confirmButtonText: "Yes, delete it!",
           }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/review-delete/${id}`)
+                axiosPublic.delete(`/review-delete-user/${id}`)
                 .then(res=>{
                 if (res.data.deletedCount > 0) {
                   const remaining = reviews.filter(
