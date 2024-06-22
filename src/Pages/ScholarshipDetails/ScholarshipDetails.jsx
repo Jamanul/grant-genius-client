@@ -12,7 +12,7 @@ const ScholarshipDetails = () => {
     const {id}=useParams()
     //console.log(id)
     useEffect(()=>{
-        axiosPublic.get(`http://localhost:5000/all-scholarship/${id}`)
+        axiosPublic.get(`https://grant-genius-server.vercel.app/all-scholarship/${id}`)
         .then(res=>{
             //console.log(res.data)
             setNewScholarshipData(res.data)

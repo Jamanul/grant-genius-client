@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useScholarship from '../../../Hooks/useScholarship';
 import { Link } from 'react-router-dom';
 import { MdDelete } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure/useAxiosSecure';
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 
 const ManageScholarship = () => {
-    const [scholarshipData,refetch]=useScholarship()
+    //const [scholarshipData,refetch]=useScholarship()
+    const axiosPublic = useAxiosPublic()
+    const [scholarshipData,setScholarshipData]=useState([])
+    useEffect(()=>{
+      axiosPublic.get(`/all-scholarships`)
+      .then(res=>{
+        setScholarshipData(res.data)
+      })
+    },[axiosPublic])
     const axiosSecure =useAxiosSecure()
     const handleDeleteScholarship =(id)=>{
         axiosSecure.delete(`/all-scholarship-delete/${id}`)
         .then(res=>{
           if(res.data.deletedCount>0){
             toast.success('deleted a scholarship')
-            refetch()
+            const remaining = scholarshipData.filter(scholarship=>scholarship._id !==id )
+            setScholarshipData(remaining)
+            //refetch()
           }
           //console.log(res.data)
           

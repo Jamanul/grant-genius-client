@@ -13,7 +13,7 @@ const EditApplication = () => {
   const { id } = useParams();
   useEffect(() => {
     axiosPublic
-      .get(`http://localhost:5000/applied-scholarship/${id}`)
+      .get(`https://grant-genius-server.vercel.app/applied-scholarship/${id}`)
       .then((res) => {
         //console.log(res.data)
         setNewScholarshipData(res.data);

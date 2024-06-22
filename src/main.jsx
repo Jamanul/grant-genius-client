@@ -36,6 +36,8 @@ import ManageAppliedScholarshipAdmin from "./Pages/Dashboard/ManageAppliedSchola
 import ManageScholarshipAdmin from "./Pages/Dashboard/ManageScholarship/ManageScholarshipAdmin.jsx";
 import EditScholarshipAdmin from "./Pages/Dashboard/EditScholarship/EditScholarshipAdmin.jsx";
 import AllReviewsAdmin from "./Pages/Dashboard/AllReviews/AllReviewsAdmin.jsx";
+import AdminRoute from "./Routes/AdminRoute.jsx";
+import ModeratorRoute from "./Routes/ModeratorRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +76,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all-scholarship/${params.id}`),
+          fetch(`https://grant-genius-server.vercel.app/all-scholarship/${params.id}`),
       },
     ],
   },
@@ -83,24 +85,24 @@ const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <Dashboard></Dashboard>
-      </PrivateRoute>
+      </PrivateRoute> 
     ),
     children: [
       {
         path: "user-dashboard",
-        element: <UserHome></UserHome>,
+        element: <PrivateRoute><UserHome></UserHome></PrivateRoute>,
       },
       {
         path: "admin-dashboard",
-        element: <AdminHome></AdminHome>,
+        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>,
       },
       {
         path: "moderator-dashboard",
-        element: <ModeratorHome></ModeratorHome>,
+        element: <ModeratorRoute><ModeratorHome></ModeratorHome></ModeratorRoute>,
       },
       {
         path: "my-application",
-        element: <UserApplication></UserApplication>,
+        element: <PrivateRoute><UserApplication></UserApplication></PrivateRoute>,
       },
       {
         path: "edit/:id",
@@ -108,7 +110,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-reviews",
-        element:<MyReviews></MyReviews>
+        element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
       },
       {
         path: "review-edit/:id",
@@ -116,15 +118,15 @@ const router = createBrowserRouter([
       },
       {
         path: "users",
-        element:<ManageUsers></ManageUsers>
+        element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
       },
       {
         path: "manage-scholarship",
-        element:<ManageScholarship></ManageScholarship>
+        element:<ModeratorRoute><ManageScholarship></ManageScholarship></ModeratorRoute>
       },
       {
         path: "manage-scholarship-admin",
-        element:<ManageScholarshipAdmin></ManageScholarshipAdmin>
+        element:<AdminRoute><ManageScholarshipAdmin></ManageScholarshipAdmin></AdminRoute>
       },
       {
         path: "edit-scholarship/:id",
@@ -136,27 +138,27 @@ const router = createBrowserRouter([
       },
       {
         path: "add-scholarship",
-        element: <AddScholarship></AddScholarship>
+        element: <ModeratorRoute><AddScholarship></AddScholarship></ModeratorRoute>
       },
       {
         path: "add-scholarship-admin",
-        element: <AddScholarshipAdmin></AddScholarshipAdmin>
+        element: <AdminRoute><AddScholarshipAdmin></AddScholarshipAdmin></AdminRoute>
       },
       {
         path:"manage-applied-scholarship",
-        element: <ManageappliedScholarship></ManageappliedScholarship>
+        element: <ModeratorRoute><ManageappliedScholarship></ManageappliedScholarship></ModeratorRoute>
       },
       {
         path:"manage-applied-scholarship-admin",
-        element: <ManageAppliedScholarshipAdmin></ManageAppliedScholarshipAdmin>
+        element: <AdminRoute><ManageAppliedScholarshipAdmin></ManageAppliedScholarshipAdmin></AdminRoute>
       },
       {
         path: "all-reviews",
-        element: <AllReviews></AllReviews>
+        element: <ModeratorRoute><AllReviews></AllReviews></ModeratorRoute>
       },
       {
         path: "all-reviews-admin",
-        element: <AllReviewsAdmin></AllReviewsAdmin>
+        element: <AdminRoute><AllReviewsAdmin></AllReviewsAdmin></AdminRoute>
       }
     ],
   },
