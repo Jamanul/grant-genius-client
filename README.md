@@ -7,39 +7,30 @@ password: asdfghJ@
 moderator: moderator@moderator.com
 password: asdfghJ@
 
-The 10 feature of my website :
-- You can know about different scholarships.
-- You can apply for a scholarship as a user.
-- You can pay for a scholarship as a user.
-- You can give review as a user.
-- You can delete your review,edit your review as a user. 
-- You can delete your applied scholarship,edit your scholarship info as a user.
-- You can add a scholarship as a moderator and admin.
-- you can delete,edit a scholarship as a moderator and admin.
-- you can cancel applied scholarship of a user as a moderator and admin.
-- you can delete review of a scholarship as a moderator and admin.
-- you can assign different role as a admin.
+Project overview: My website gives easy access to a diverse range of university scholarships, offering a easy application process with integrated payment options for users. Then, users can provide and manage reviews for scholarships, while adminis and moderators have a dashboard to manage listings, applications, reviews, and user roles efficiently.
+
+The 3 main feature of my website :
+- My website offers a scholarship management system where users can explore various scholarships, apply directly through the site and make secure payments. Users have full control over their applications and reviews, allowing them to edit or delete their submissions as needed.
+- Another key feature is the user review system, where users can provide valuable feedback on scholarships and update or remove their reviews to keep information accurate and helpful for other users.
+- For admins and moderators, the site provides a dashboard to manage scholarship listings, including adding, editing, and deleting entries. They can also handle user applications and reviews, canceling applications or removing reviews if necessary, and admins have the ability to assign different roles to users.
+
+Technology 
+- React
+- mongodb
+- tailwind-css
+- javascript
+- html
+- css
+- firebase
+- express js
+- node js
+
+If you want to run this project locally, you have to follow this steps
+- First clone the git
+- Open the terminal and install all the packages
+- give your own imagebb api key
+- Create a firebase project and provide api key in the .env.local file
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
