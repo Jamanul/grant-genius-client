@@ -47,7 +47,7 @@ const TopScholarship = () => {
   //console.log(scholarshipData);
   return (
     <div>
-      <h2 className="mb-2 text-5xl text-center">Top Scholarship</h2>
+      <h2 className="mb-2 text-3xl md:text-5xl text-center">Top Scholarship</h2>
       <h2 className="mb-6 text-center">
         Discover amazing opportunities to take your life to another level
       </h2>
@@ -55,7 +55,7 @@ const TopScholarship = () => {
         {scholarshipsWithRatings?.slice(0, 6).map((singleScholarship) => (
           <div
             key={singleScholarship._id}
-            className="card w-96 bg-base-100 shadow-xl"
+            className="card bg-base-100 shadow-xl"
           >
             <figure>
               <img

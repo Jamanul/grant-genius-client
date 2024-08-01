@@ -62,18 +62,18 @@ const UpcomingEvents = () => {
 
     return (
         <div>
-            <h2 className='text-5xl'>
+            <h2 className='text-3xl md:text-5xl'>
                 Upcoming Events.
             </h2>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    eventData.map(data=><div key={data.id} className="card w-96 bg-base-100 shadow-xl">
-                    <figure><img className='w-80' src={data.image} alt="Shoes" /></figure>
+                    eventData.map(data=><div key={data.id} className="card bg-base-100 shadow-xl">
+                    <figure><img className='w-80 ' src={data.image} alt="Shoes" /></figure>
                     
                     <div className="card-body text-left">
                       <h2 className="card-title">{data.title}</h2>
                       <p>{data.description}</p>
-                      <div className='flex gap-6 my-2'>
+                      <div className='flex flex-col md:flex-row gap-2 md:gap-6 my-2'>
                         <div className='flex gap-2 items-center'>
                             <FaCalendar className='text-xl text-[#0AB99D]'/> {data.date}
                         </div>

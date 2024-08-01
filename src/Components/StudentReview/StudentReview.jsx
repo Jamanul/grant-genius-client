@@ -21,7 +21,7 @@ const StudentReview = () => {
     },[])
     return (
         <div>
-            <h2 className='text-5xl'>Student review section</h2>
+            <h2 className='text-3xl md:text-5xl'>Student review section</h2>
             <div>
             <Swiper
           spaceBetween={30}
@@ -40,11 +40,11 @@ const StudentReview = () => {
           {reviews.slice(0,10)?.map((data) => (
             <SwiperSlide className="rounded-3xl border my-12" key={data._id}>
                 <div>
-                    <div className="flex justify-between w-96 object-cover">
+                    <div className="flex flex-col md:flex-row justify-between w-96 object-cover">
                     <div className="w-24 h-24">
-                    <img className="w-10 rounded-full mt-2" src={data.userImg} alt="" />
+                    <img className="w-10 rounded-full ml-4 md:ml-0 mt-2" src={data.userImg} alt="" />
                     </div>
-                    <div className="mt-2 flex flex-col text-left">
+                    <div className="mt-2 ml-4 md:ml-0 flex flex-col text-left">
                         <p><span className="font-bold">Reviewer : </span>{data.userName}</p>
                         <p className="flex items-center gap-1"><span className="font-bold ">Rating : </span> <Rating style={{ maxWidth: 100 }} value={data.rating} readOnly/></p>
                         
